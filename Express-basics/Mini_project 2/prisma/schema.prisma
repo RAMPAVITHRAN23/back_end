@@ -1,0 +1,18 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Product {
+  product_id String @id @default(uuid())  // Marked as ID with UUID
+  image_url  String
+  rating     Float  // Assuming rating is a decimal number
+  timing     Int    // Assuming timing is in minutes
+  address    String
+}
